@@ -1,0 +1,22 @@
+services:
+    app:
+        image: php:8.2-apache
+        ports:
+            - "8080:80"
+        volumes:
+            - ./index.php:/var/www/html/index.php
+        depends_on:
+            - db
+
+    db:
+        image: postgres:15
+        environment:
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: testdb
+        volumes:
+            - db_data:/var/lib/postgresql/data
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+    db_data:

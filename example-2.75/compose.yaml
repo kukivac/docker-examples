@@ -1,0 +1,7 @@
+services:
+    app:
+        build: .
+        ports:
+            - "8080:80"
+        environment:
+            MY_SUPER_SECRET_PASSWORD: xHeslo123

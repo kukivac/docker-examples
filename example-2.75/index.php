@@ -1,0 +1,2 @@
+<?php
+echo $_ENV["MY_SUPER_SECRET_PASSWORD"];
